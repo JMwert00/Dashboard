@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Studentendashboard</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="widget.css">
+    
+</head>
+<body>
+    <div class="mob-header">
+      <div class="d-flex">
+        <div class="navbar-brand">
+          <a class="logo-text" >Studentendashboard</a>
+        </div>
+        <button id="menu-toggle" class="toggler-menu ">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <header class="header-left ">
+      <div class="scroll-bar">
+        <div class="hl-top">
+          <div class="hl-logo">
+            <div class="clock">
+              <iframe src="https://free.timeanddate.com/clock/i8w3nb4o/n259/szw110/szh110/hoc000/hbw2/hfceee/cf100/hncccc/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98" frameborder="0" width="110" height="110"></iframe>
+            </div>
+            <h4>Studendendashboard</h4>
+          </div>
+        </div>
+        <ul class="nav nav-menu" id="pp-menu">
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#to-do-list">To-DO list</a></li>
+          <li><a class="nav-link" href="#calendar">Calendar</a></li>
+          <li><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li><a class="nav-link" href="#kontakt-list">Contact list</a></li>
+          <li><a class="nav-link" href="#widget">Widgets</a></li>
+        </ul>
+      </div>
+      <script>
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+          var headerLeft = document.querySelector(".header-left");
+          headerLeft.classList.toggle("menu-open");
+        });
+      </script>
+      
+    </header>
+    <main class="main-left pp-main-section">
+      <section id="home" data-nav-tooltip="Home" class="pp-section pp-scrollable">
+        <div class="home-banner">
+          <div class="container">
+            <div class="row full-screen align-items-center">
+              <div class="col-lg-12">
+                  <div class="title">
+                  <h1>Hello, this is our Homepage</h1>
+                  </div>
+                    <div class="display-date">
+                      <span id="day">day</span>,
+                      <span id="daynum">00</span>
+                      <span id="month">month</span>
+                      <span id="year">0000</span>
+                    </div>
+                    <div class="display-time"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+       <section id="to-do-list" data-nav-tooltip="To-DO List" class="pp-section pp-scrollable section counter">
+        <div class="container">
+          <div class="title">
+          <h3>ToDo-Liste</h3> 
+        </div>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-8 m-15px-tb">
+             <form id="todoForm">
+              <label for="dateInput">Datum:</label>
+              <input type="date" id="dateInput" required>
+              <label for="taskInput">Aufgabe:</label>
+              <input type="text" id="taskInput" required>
+              <button type="button" onclick="newElement()" class="addBtn">Add</button>
+              <button type="submit">Speichern</button> <!--<button type="submit">Speichern</button>-->             
+              </form>
+             <ul id="taskList"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="calendar" data-nav-tooltip="Calendar" class="pp-section pp-scrollable section">   
+        <div class="title">
+            <h3>Calendar</h3>
+            </div>
+          <div class="calendar">
+            <div class='container'>
+             <div class='calendar'>
+                 <div class='date-header'>
+                     <span id='prev' class='time-skip'>prev</span>
+                     <div class='year-month'>
+                         <span class='month'></span>
+                         <span class='year'></span>
+                     </div>
+                     <span id='next' class='time-skip'>next</span>
+                 </div>
+                 <table class='days-body'>
+                     <thead>
+                         <tr class='days-row'>
+                             <th>Sun</th>
+                             <th>Mon</th>
+                             <th>Tue</th>
+                             <th>Wed</th>
+                             <th>Thu</th>
+                             <th>Fri</th>
+                             <th>Sat</th>
+                         </tr>
+                     </thead>
+                     <tbody class='calendar-days'></tbody>
+                 </table>
+             </div>
+             <div class='event-container'>
+                 <div class='events visible'>
+                     <span class='no-Events event-message'>There are no events today</span>
+                     <button class='show-event-form rotate'>Add new event</button>
+                 </div>
+                 <form class="new-event-form hidden">
+                  <legend>Submit New Event</legend>
+                  <input id="new-event-date" type="date" name="date" placeholder="Date" required>
+                  <input id="new-event-desc" type="text" name="desc" placeholder="Description" required>
+                  <input type="submit" class="submit-event rotate" value="Submit">
+              </form>
+             </div>
+            </div>     
+          </div>
+      </section>
+        <section id="gallery" data-nav-tooltip="Gallery" class="pp-section pp-scrollable section">
+          <div class="container">
+                <div class="separated">
+                  <div class="title">
+                    <h3>Gallery</h3>
+                  </div>
+                </div>
+                <div class="gallery">
+                <a href="images/1.jpeg" data-lightbox="models" data-title="Big buterflies">
+                  <img src="images/1.jpeg" alt="Big buterflies with girl">
+                </a>
+                <a href="images/2.jpeg" data-lightbox="models" data-title="Model with buterflies">
+                  <img src="images/2.jpeg" alt="Model with buterflies">
+                </a>
+                <a href="images/3.jpeg" data-lightbox="models" data-title="Japanese street1">
+                  <img src="images/3.jpeg" alt="Japanese street1">
+                </a>
+                <a href="images/4.jpeg" data-lightbox="models" data-title="Japanese street2">
+                  <img src="images/4.jpeg" alt="Japanese street2">
+                </a>
+                <a href="images/schwimmbad.jpg" data-lightbox="models" data-title="Fictive swimming pool">
+                  <img src="images/schwimmbad.jpg" alt="Fictive swimming pool">
+                </a>
+                </div>            
+          </div>
+      </section>
+      <!--WidgetKontaktliste-->
+      <section id="kontakt-list" data-nav-tooltip="kontakt-list" class="pp-section pp-scrollable section counter">
+        <div id="container">
+          <div class="title">
+            <h3>Contact list</h3>
+          </div>
+          <div id="contacts-container" class="droppable">
+            <ul id="contact-list"></ul>
+          </div>
+          <div id="add-contact-container">
+            <h2>Neuen Kontakt hinzufügen</h2>
+            <input type="text" id="name-input" placeholder="Name">
+            <input type="text" id="email-input" placeholder="Email">
+            <button id="add-contact-btn">Kontakt hinzufügen</button>
+          </div>
+        </div>
+
+      </section>
+       <!--WidgetKontaktliste-->
+      <section id="widget" data-nav-tooltip="Widget" class="pp-section pp-scrollable section">
+        <div class="container" >
+          <div class="title">
+          <h3>Taschenrechner</h3>
+        </div>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-8 m-15px-tb"> 
+              <main role="main">
+              <form id="calc">
+                <output>0</output>
+                <fieldset>
+                  <button>C</button>
+                  <button>0</button>
+                  <button>1</button>
+                  <button>2</button>
+                  <button>3</button>
+                  <button>4</button>
+                  <button>5</button>
+                  <button>6</button>
+                  <button>7</button>
+                  <button>8</button>
+                  <button>9</button>
+                  <button>.</button>
+                  <button>+</button>
+                  <button>-</button>
+                  <button>×</button>
+                  <button>÷</button>
+                  <button>=</button>
+                  <button>√</button>
+                  <button>x²</button>
+                  <button>ln</button>
+                  </fieldset>
+              </form>
+              <aside id="usage">
+                <h4>Hinweise zur Bedienung rein mit der Tastatur</h4>
+                <dl> <dt><strong>=</strong> (Ergebnis berechnen)</dt>
+                  <dd><strong>=</strong> oder <strong>Enter</strong>
+                  </dd> <dt><strong>√</strong> (Wurzel)</dt>
+                  <dd><strong>R</strong> (root - Wurzel)</dd> <dt><strong>x²</strong> (Quadrat)</dt>
+                  <dd><strong>S</strong> (square - Quadrat)</dd> <dt><strong>ln</strong> (natürlicher Logarithmus)</dt>
+                  <dd><strong>L</strong> (logarithm -Logarithmus)</dd> <dt><strong>C</strong> (zurücksetzen auf Null)</dt>
+                  <dd><strong>C</strong> (clear - Löschen), <strong>Entf</strong> oder <strong>Backspace</strong>
+                  </dd>
+                </dl>
+              </aside>
+              </main>
+            </div>
+          </div>
+          <div class="container" ></div>
+          <div class="title"></div>
+            <h3>Aktuelle Wetter</h3>
+          </div>
+        </div>
+            <a class="weatherwidget-io" href="https://forecast7.com/de/48d2116d37/vienna/" data-label_1="Wien" data-label_2="Wetter" data-theme="original" >Wien Wetter</a>
+        </div>
+      </section>
+    </main>
+      <!--Weather-Script-->
+      <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id))
+        {js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';
+        fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+      </script>
+      <script src="jquery-3.3.1.js"></script>
+      <script src="demo.js"></script>
+      <script src="calculate.js"></script>
+      <script src="to_do.js"></script>
+      <script src="lightbox-plus-jquery.js"></script>
+      <script src="wIdget.js"></script>
+      <script src="calendar.js"></script>
+</html>
